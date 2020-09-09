@@ -204,7 +204,7 @@ class DatePicker extends Component {
       });
       this.datePicked();
     }
-  
+
   }
 
   onTimePicked(event, time) {
@@ -267,6 +267,7 @@ class DatePicker extends Component {
   render() {
     const {
       mode,
+      androidMode,
       style,
       customStyles,
       disabled,
@@ -334,6 +335,7 @@ class DatePicker extends Component {
                       <DateTimePicker
                         value={this.state.date}
                         mode={mode}
+                        display={androidMode}
                         minimumDate={minDate && this.getDate(minDate)}
                         maximumDate={maxDate && this.getDate(maxDate)}
                         onChange={this.onDateChange}
@@ -373,8 +375,8 @@ class DatePicker extends Component {
               </TouchableComponent>
             </View>
           </Modal>}
-          {(mode === 'time' && this.state.isPicker)?<DateTimePicker mode="time" value={this.state.date} onChange={this.onTimePicked}/>:null}
-          {(mode === 'date' && this.state.isPicker)?<DateTimePicker mode="date" minimumDate={minDate && this.getDate(minDate)} maximumDate={maxDate && this.getDate(maxDate)} value={this.state.date} onChange={this.onDatePicked}/>:null}
+          {(mode === 'time' && this.state.isPicker)?<DateTimePicker mode="time"  display={androidMode} value={this.state.date} onChange={this.onTimePicked}/>:null}
+          {(mode === 'date' && this.state.isPicker)?<DateTimePicker mode="date"  display={androidMode} minimumDate={minDate && this.getDate(minDate)} maximumDate={maxDate && this.getDate(maxDate)} value={this.state.date} onChange={this.onDatePicked}/>:null}
         </View>
       </TouchableComponent>
     );
