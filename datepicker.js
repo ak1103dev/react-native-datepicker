@@ -375,7 +375,7 @@ class DatePicker extends Component {
               </TouchableComponent>
             </View>
           </Modal>}
-          {(mode === 'time' && this.state.isPicker)?<DateTimePicker mode="time"  display={androidMode} value={this.state.date} onChange={this.onTimePicked}/>:null}
+          {(mode === 'time' && this.state.isPicker)?<DateTimePicker mode="time"  minimumDate={minDate && this.getDate(minDate)} maximumDate={maxDate && this.getDate(maxDate)}  display={androidMode} value={this.state.date} onChange={this.onTimePicked}/>:null}
           {(mode === 'date' && this.state.isPicker)?<DateTimePicker mode="date"  display={androidMode} minimumDate={minDate && this.getDate(minDate)} maximumDate={maxDate && this.getDate(maxDate)} value={this.state.date} onChange={this.onDatePicked}/>:null}
         </View>
       </TouchableComponent>
